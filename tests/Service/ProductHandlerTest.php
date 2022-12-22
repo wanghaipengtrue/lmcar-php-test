@@ -3,7 +3,8 @@
 namespace Test\Service;
 
 use PHPUnit\Framework\TestCase;
-use App\Service\ProductHandler;
+use PHPUnit\Runner\Exception;
+use Test\Service\ProductHandler;
 
 /**
  * Class ProductHandlerTest
@@ -64,5 +65,33 @@ class ProductHandlerTest extends TestCase
         }
 
         $this->assertEquals(143, $totalPrice);
+    }
+
+    public function testGetProductSum(){
+        $handler = (new ProductHandler());
+        $sumResult = $handler->getProductSum($this->products);
+        if (!$sumResult){
+            throw new Exception('the data is empty');
+        }
+        var_dump($sumResult);
+        //$this->assertEquals(143, $sumResult);
+    }
+
+    public function testSortProductPrice(){
+        $handler = (new ProductHandler());
+        $result = $handler->sortProductPrice($this->products);
+        if (!$result){
+            throw new Exception('the data is empty');
+        }
+        var_dump($result);
+    }
+
+    public function testDateToTimestamp(){
+        $handler = (new ProductHandler());
+        $result = $handler->dateToTimestamp(date("Y-m-d H:i:s"));
+        if (!$result){
+            throw new Exception('the data is empty');
+        }
+        var_dump($result);
     }
 }
