@@ -35,7 +35,7 @@ class Common
 
             // getThriftService： 獲取 Thrift 服務
             $geoHelper = ServiceContainer::getThriftService('phpgeohelper\\Geocoding');
-            $param = json_encode([[$address, $key]]);
+            $param = json_encode([[$address, $key]],JSON_UNESCAPED_UNICODE);
 
             // 調用接口，以地址獲取座標
             $response = $geoHelper->convert_addresses($param);
