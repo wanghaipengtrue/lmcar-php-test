@@ -12,3 +12,8 @@ composer install
 ```
 
 ## 测试人员 - 王海鹏
+## 工作
+```
+1\安装PHPunit
+2\安装think-log package
+```
