@@ -23,18 +23,30 @@ class AppLogger
         }
     }
 
+    /**
+     * Fun:当对象为think-log时信息转大写
+     * User:Atom
+     * Date:2022/12/24 12:11 AM
+     * Identifier:msgToUpper
+     * @param string $message 消息体
+     * @return string
+     */
+    private function msgToUpper(string $message = ''){
+        return $this->isUp ? strtoupper($message) : $message;
+    }
+
     public function info($message = '')
     {
-        $this->logger->info($this->isUp ? strtoupper($message) : $message);
+        $this->logger->info($this->msgToUpper($message));
     }
 
     public function debug($message = '')
     {
-        $this->logger->debug($this->isUp ? strtoupper($message) : $message);
+        $this->logger->debug($this->msgToUpper($message));
     }
 
     public function error($message = '')
     {
-        $this->logger->error($this->isUp ? strtoupper($message) : $message);
+        $this->logger->error($this->msgToUpper($message));
     }
 }
